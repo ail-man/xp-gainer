@@ -27,9 +27,12 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @author Artur Lomsadze
  */
+@Slf4j
 public class XPGainerTest {
 
 	public XPGainerTest() {
@@ -41,6 +44,7 @@ public class XPGainerTest {
 		login();
 		goToStories();
 		for (int i = 0; i < 100; i++) {
+			log.info("Count: {}", i);
 			goToSaturdayNight();
 			learnLesson();
 		}
