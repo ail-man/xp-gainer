@@ -23,6 +23,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
@@ -30,6 +31,10 @@ import com.codeborne.selenide.SelenideElement;
  * @author Artur Lomsadze
  */
 public class XPGainerTest {
+
+	public XPGainerTest() {
+		Configuration.timeout = 6000;
+	}
 
 	@Test
 	public void automateXpGaining() {
