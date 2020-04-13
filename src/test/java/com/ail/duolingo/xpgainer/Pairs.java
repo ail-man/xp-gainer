@@ -30,8 +30,10 @@ import org.junit.Test;
 public final class Pairs {
 
 	public static Map<String, List<String>> readFromFile(final String file) {
+		final String pairsPath = System.getProperty("duolingo.pairs.path");
+		final String filePath = pairsPath != null ? pairsPath + file : file;
 		try {
-			final BufferedReader br = new BufferedReader(new FileReader(file));
+			final BufferedReader br = new BufferedReader(new FileReader(filePath));
 			return getMap(br);
 		} catch (final IOException e) {
 			throw new UncheckedIOException(e);
@@ -61,8 +63,8 @@ public final class Pairs {
 
 	@Test
 	@Ignore
-	public void testReadFromFile() {
-		final Map<String, List<String>> map = readFromFile("/home/ail/optile/projects/com.ail/xp-gainer/src/test/resources/pairs.csv");
+	public void testReadFromFile() { // NOSONAR squid:S1607
+		final Map<String, List<String>> map = readFromFile("/pairs.csv");
 		Assert.assertNotNull(map);
 		System.out.println(map);
 	}
